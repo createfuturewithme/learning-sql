@@ -1,0 +1,75 @@
+1. Select,From Ne getireyim, Nereden?
+SELECT = Getir
+* = Tüm sütunlar
+FROM = Hangi tablodan
+; = Cümle sonu
+
+Sadece bazı sütunlar istenirse araya virgül koyarak sorgu yazılabilir:
+SELECT Ad, Sehir FROM Ogrenciler;
+
+2. WHERE: 'HANGİ SATIRLAR?'
+WHERE Bir filtredir.
+SELECT * FROM Ogrenciler WHERE Sehir = N'Istanbul';
+Okunuşu : öğrenciler tablosundan şehri İstanbul olanları getir.
+
+Karşılaştırma İşaretleri:
+=  EŞİT
+<> EŞİT DEĞİL
+<  KÜÇÜK
+>  BÜYÜK
+<= KÜÇÜK VEYA EŞİT
+>= BÜYÜK VEYA EŞİT
+
+Örnekler:
+SELECT * FROM Ogrenciler WHERE Yas > 22;
+Okunuşu: Öğrenciler tablosundan yaşı 22'den büyük olanları getir.
+SELECT * FROM Ogrenciler WHERE Sehir <> N'Ankara';
+Okunuşu: Öğrenciler tablosundan şehri ankara olmayanları getir.
+*KURAL: Metin tek tırnak'' İçerisinde yazılır sayı ise tırnaksız yazılır.
+
+SELECT * FROM Ogrenciler WHERE Puan > 85;
+Okunuşu: Puanı 85'ten yüksek olanları getir.
+
+3. AND,OR: BİRDEN FAZLA ŞART
+SELECT * FROM Ogrenciler WHERE Sehir = N'Istanbul' AND Puan >= 80;
+Okunuşu: Öğrenciler tablosundan şehri İstanbul olanları ve puanı 80 veya daha yukarıda olanları getir.
+SELECT * FROM Ogrenciler WHERE Sehir = N'Izmır' OR Sehir = N'Ankara';
+Okunuşu: Öğrenciler tablosundan şehri izmir veya ankara olanları getir.
+*KURAL: AND = iki şart'da doğru olmalı. OR = şartlardan birinin doğru olması yeterli.
+
+4. ORDER BY: Sıralama
+SELECT * FROM Ogrenciler  ORDER BY Puan DESC;
+Okunuşu: Öğrenciler tablosundan hepsini getir puana göre büyükten küçüğe sırala.
+*KURAL: ASC = Küçükten büyüğe sıralar(yazmazsak bu şekilde gelir.). DESC = Büyükten küçüğe sıralar.
+*KURAL: WHERE ile birlikte kullanırsan ORDER BY En sona gelir.
+
+SELECT Ad, Puan FROM Ogrenciler WHERE Puan > 80 ORDER BY Puan DESC;
+Okunuşu: Öğrenciler tablosundan ad ve puanı seç puanı 80'den büyük olanları getir ve puana göre büyükten küçüğe sırala.
+
+5. Alıştırmalardaki Yeni Parçalar
+-BETWEEN: Aralık
+SELECT * FROM Ogrenciler WHERE Puan BETWEEN 80 AND 90;
+Okunuşu: Öğrenciler tablosundan puanı 80 ile 90 arasındakileri getir (80 ve 90 dahil).
+
+-LIKE: Metin içinde arama
+SELECT * FROM Ogrenciler WHERE Ad LIKE N'A%';
+Okunuşu: Öğrenciler tablosundan adı a ile başlayanları getir.
+*NOT: % Herhangi bir şey demek.
+A%:  A ile başlayanlar
+%A:  A ile bitenler
+%A%: İçinde A Olanlar
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
